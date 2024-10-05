@@ -1,7 +1,7 @@
 import { Groq } from "groq-sdk";
-import prompt from '../../prompt';
 
 const GROQ_API = import.meta.env.VITE_GROQ;
+const PROMPT = import.meta.env.VITE_PROMPT;
 
 const groq = new Groq({
   apiKey: GROQ_API,
@@ -13,7 +13,7 @@ export const reqPesan = async (content) => {
     messages: [
       {
         role: "system",
-        content: prompt //make your own promt (make a file in root = prompt.js)
+        content: prompt //make your own promt (in .env)
       },
       {
         role: "user",
