@@ -13,7 +13,7 @@ export const reqPesan = async (content) => {
     messages: [
       {
         role: "system",
-        content: prompt //make your own promt (in .env)
+        content: PROMPT //make your own promt (in .env)
       },
       {
         role: "user",
