@@ -5,14 +5,13 @@ import { reqPesan } from "./utils/groq";
 function App() {
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
-  const [botName, setBotName] = useState("Ichigo - 015"); //default bot name
+  const [botName, setBotName] = useState("Ichigo - 015"); // default bot name
   const [showNameModal, setShowNameModal] = useState(false);
   const [newBotName, setNewBotName] = useState("");
-  const [botProfilePic, setBotProfilePic] = useState("https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"); //default profile pict
+  const [botProfilePic, setBotProfilePic] = useState("https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"); // default profile pic
   const [newBotProfilePic, setNewBotProfilePic] = useState(null);
 
   // Load data from Local Storage 
-  //idk why but my local storage doesn't work:(
   useEffect(() => {
     setBotName(loadFromLocalStorage("botName", "Ichigo - 015"));
     setBotProfilePic(loadFromLocalStorage("botProfilePic", "https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"));
@@ -72,6 +71,11 @@ function App() {
     setShowNameModal(false);
   };
 
+  const resetChat = () => {
+    setMessages([]);
+    saveToLocalStorage("messages", []); // Reset messages in local storage
+  };
+
   return (
     <main className="flex flex-col min-h-[80vh] justify-center items-center bg-gray-100">
       <div className="w-full max-w-xl bg-white shadow-lg rounded-lg flex flex-col">
@@ -112,6 +116,14 @@ function App() {
                 className="bg-blue-500 text-white py-2 px-4 rounded-md font-bold w-full hover:bg-blue-600 transition"
               >
                 Konfirmasi
+              </button>
+              
+              {/* Tambahkan tombol Reset Chat di dalam modal */}
+              <button
+                onClick={resetChat}
+                className="bg-red-500 py-2 px-4 font-bold text-white rounded-md hover:bg-red-600 transition mt-4 w-full"
+              >
+                Reset Chat
               </button>
             </div>
           </div>
