@@ -77,16 +77,16 @@ function App() {
   };
 
   return (
-    <main className="flex flex-col min-h-[80vh] justify-center items-center bg-gray-100">
-      <div className="w-full max-w-xl bg-white shadow-lg rounded-lg flex flex-col">
+    <main className="flex flex-col min-h-[80vh] justify-center items-center bg-gray-100 px-4 sm:px-0">
+      <div className="w-full max-w-sm sm:max-w-xl bg-white shadow-lg rounded-lg flex flex-col">
         <header className="flex items-center justify-between p-4 bg-blue-500 text-white rounded-t-lg">
           <div className="flex items-center">
             <img
               src={botProfilePic}
               alt="Bot Avatar"
-              className="w-12 h-12 rounded-full mr-3"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3"
             />
-            <h1 className="text-xl font-bold">{botName}</h1>
+            <h1 className="text-lg sm:text-xl font-bold">{botName}</h1>
           </div>
           <button onClick={() => setShowNameModal(true)} className="text-white text-2xl">⋮</button>
         </header>
@@ -117,8 +117,7 @@ function App() {
               >
                 Konfirmasi
               </button>
-              
-              {/* Tambahkan tombol Reset Chat di dalam modal */}
+
               <button
                 onClick={resetChat}
                 className="bg-red-500 py-2 px-4 font-bold text-white rounded-md hover:bg-red-600 transition mt-4 w-full"
@@ -129,7 +128,7 @@ function App() {
           </div>
         )}
 
-        <div className="flex-grow overflow-y-auto max-h-[500px] mb-4 p-4 space-y-4 bg-gray-50 rounded-lg shadow-inner">
+        <div className="flex-grow overflow-y-auto max-h-[400px] mb-4 p-4 space-y-4 bg-gray-50 rounded-lg shadow-inner">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
               <div
