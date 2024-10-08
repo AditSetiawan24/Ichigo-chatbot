@@ -5,20 +5,18 @@ import { reqPesan } from "./utils/groq";
 function App() {
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
-  const [botName, setBotName] = useState("Ichigo - 015"); // default bot name
+  const [botName, setBotName] = useState("Ichigo - 015");
   const [showNameModal, setShowNameModal] = useState(false);
   const [newBotName, setNewBotName] = useState("");
-  const [botProfilePic, setBotProfilePic] = useState("https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"); // default profile pic
+  const [botProfilePic, setBotProfilePic] = useState("https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg");
   const [newBotProfilePic, setNewBotProfilePic] = useState(null);
 
-  // Load data from Local Storage 
   useEffect(() => {
     setBotName(loadFromLocalStorage("botName", "Ichigo - 015"));
     setBotProfilePic(loadFromLocalStorage("botProfilePic", "https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"));
     setMessages(loadFromLocalStorage("messages", []));
   }, []); 
 
-  // Save data to Local Storage when state changes
   useEffect(() => {
     saveToLocalStorage("botName", botName);
   }, [botName]);
@@ -43,14 +41,19 @@ function App() {
   const handleSubmit = async () => {
     if (content.trim() === "") return;
 
-    const newUserMessage = { role: "user", content, isUser: true };
-    setMessages([...messages, newUserMessage]);
+    const newUserMessage = { role: "user", content };
+    const updatedMessages = [...messages, newUserMessage];
+    setMessages(updatedMessages);
 
-    const aiReply = await reqPesan(content);
-    const newAiMessage = { role: "ai", content: aiReply, isUser: false };
+    try {
+      const aiReply = await reqPesan(content, updatedMessages);
+      const newAiMessage = { role: "ai", content: aiReply };
 
-    setMessages(prev => [...prev, newAiMessage]);
-    setContent(""); // Clear input field after sending
+      setMessages(prev => [...prev, newAiMessage]);
+      setContent("");
+    } catch (error) {
+      console.error('Error fetching AI reply:', error);
+    }
   };
 
   const handleNameChange = () => {
@@ -73,7 +76,7 @@ function App() {
 
   const resetChat = () => {
     setMessages([]);
-    saveToLocalStorage("messages", []); // Reset messages in local storage
+    saveToLocalStorage("messages", []);
   };
 
   return (
@@ -130,10 +133,10 @@ function App() {
 
         <div className="flex-grow overflow-y-auto max-h-[400px] mb-4 p-4 space-y-4 bg-gray-50 rounded-lg shadow-inner">
           {messages.map((msg, index) => (
-            <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
+            <div key={index} className={`flex ${msg.role === "user" ? 'justify-end' : 'justify-start'}`}>
               <div
                 className={`rounded-2xl p-3 max-w-xs break-words shadow-md ${
-                  msg.isUser ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
+                  msg.role === "user" ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
                 }`}
               >
                 <p>{msg.content}</p>
@@ -157,6 +160,19 @@ function App() {
           </button>
         </div>
       </div>
+      <footer class="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">Creator :</p>
+            <div class="flex justify-center mt-4 space-x-6">
+                <a href="https://github.com/AditSetiawan24" target="_blank" class="hover:text-gray-400">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" class="w-8 h-8" />
+                </a>
+                <a href="https://instagram.com/aditsetiawan_24/" target="_blank" class="hover:text-gray-400">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" class="w-8 h-8" />
+                </a>
+            </div>
+        </div>
+    </footer>
     </main>
   );
 }
