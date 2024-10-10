@@ -5,7 +5,7 @@
 
 ###
 Note :
-For indonesian language : [KLIK DISINI](https://www.geeksforgeeks.org/svg-viewbox-attribute/)
+For indonesian language : [KLIK DISINI](https://github.com/AditSetiawan24/Groq-chatbot/blob/master/README(id).md)
 <h2>Ichigo - 015</h2> 
 This is a chatbot project designed to solve coding issues with a touch of a girlfriend/boyfriend experience. You can change its profile picture or username. This project is built using Vite, React, Tailwind, and Groq with the base model llama3.
 
