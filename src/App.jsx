@@ -145,7 +145,7 @@ function App() {
           ))}
         </div>
 
-        <div className="flex-grow flex-wrap overflow-y-auto flex mt-4 px-4 flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex-grow flex-wrap overflow-y-auto flex mt-4 px-4">
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
@@ -154,7 +154,7 @@ function App() {
           />
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 py-2 px-4 rounded-r-full hover:bg-blue-600 transition flex items-center justify-center sm:w-auto w-full mx-auto"
+            className="bg-blue-500 py-2 px-4 rounded-r-full hover:bg-blue-600 transition flex items-center justify-center"
           >
             {/* Paper Airplane Icon */}
             <svg
