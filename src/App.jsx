@@ -145,16 +145,16 @@ function App() {
           ))}
         </div>
 
-        <div className="flex mt-4 px-4">
+        <div className="flex flex-col sm:flex-row items-center mt-4 px-4 w-full">
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Ketik pesan..."
-            className="flex-grow py-2 px-4 text-md rounded-l-full border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            className="flex-grow py-2 px-4 text-md rounded-full border border-gray-300 focus:outline-none focus:ring focus:border-blue-300 w-full sm:w-auto"
           />
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 py-2 px-4 rounded-r-full hover:bg-blue-600 transition flex items-center justify-center"
+            className="bg-blue-500 py-2 px-4 rounded-full sm:rounded-r-full hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto"
           >
             {/* Paper Airplane Icon */}
             <svg
