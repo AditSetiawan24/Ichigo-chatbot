@@ -171,8 +171,8 @@ function App() {
         </div>
       </div>
 
-{/*       <footer className="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2 sm:hidden"> */}
-        <div className="container mx-auto text-center fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2 mb-20">
+      <footer className="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2 hidden sm:block">
+        <div className="container mx-auto text-center">
           <p className="text-lg">Creator :</p>
           <div className="flex justify-center mt-4 space-x-6">
             <a href="https://github.com/AditSetiawan24" target="_blank" className="hover:text-gray-400">
@@ -183,7 +183,7 @@ function App() {
             </a>
           </div>
         </div>
-{/*       </footer> */}
+      </footer>
     </main>
   );
 }
