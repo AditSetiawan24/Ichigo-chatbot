@@ -145,7 +145,7 @@ function App() {
           ))}
         </div>
 
-        <div className="flex-grow flex-wrap overflow-y-auto flex mt-4 px-4">
+        <div className="flex-grow flex-wrap overflow-y-auto flex mt-4 px-4 flex-col sm:flex-row sm:items-center sm:justify-between">
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
