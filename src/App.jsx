@@ -154,25 +154,40 @@ function App() {
           />
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 py-2 px-6 font-bold text-white rounded-r-full hover:bg-blue-600 transition"
+            className="bg-blue-500 py-2 px-4 rounded-r-full hover:bg-blue-600 transition flex items-center justify-center"
           >
-            Kirim
+            {/* Paper Airplane Icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3l18 9-9 9-3-3 3-3-9-9z"
+              />
+            </svg>
           </button>
         </div>
       </div>
-      <footer class="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2">
-        <div class="container mx-auto text-center">
-            <p class="text-lg">Creator :</p>
-            <div class="flex justify-center mt-4 space-x-6">
-                <a href="https://github.com/AditSetiawan24" target="_blank" class="hover:text-gray-400">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" class="w-8 h-8" />
-                </a>
-                <a href="https://instagram.com/aditsetiawan_24/" target="_blank" class="hover:text-gray-400">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" class="w-8 h-8" />
-                </a>
-            </div>
+
+      <footer className="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2">
+        <div className="container mx-auto text-center">
+          <p className="text-lg">Creator :</p>
+          <div className="flex justify-center mt-4 space-x-6">
+            <a href="https://github.com/AditSetiawan24" target="_blank" className="hover:text-gray-400">
+              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" className="w-8 h-8" />
+            </a>
+            <a href="https://instagram.com/aditsetiawan_24/" target="_blank" className="hover:text-gray-400">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" className="w-8 h-8" />
+            </a>
+          </div>
         </div>
-    </footer>
+      </footer>
     </main>
   );
 }
