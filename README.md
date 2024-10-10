@@ -19,7 +19,7 @@ Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
 ## How To Use It?
 1. Clone
    ```sh
-   git clone https://github.com/AditSetiawan24/Groq-chatbot.git
+   git clone https://github.com/AditSetiawan24/Ichigo-chatbot.git
    ```
 2. Install Dependencies
    ```sh
