@@ -5,7 +5,7 @@
 
 ##
 <h2>Ichigo - 015</h2> 
-Ini merupakan project chatbot untuk menyelesaikan masalah codingan dengan bumbu girlfriend/boyfriend experience. Anda bisa mengubah foto profile ataupun usernamenya. Project ini dibuat menggunakan Vite, React, Tailwind, dan Groq dengan base model llama3
+Ini merupakan project chatbot untuk menyelesaikan masalah codingan dengan bumbu girlfriend/boyfriend experience. Anda bisa mengubah foto profile ataupun usernamenya. Project ini dibuat menggunakan Vite, React, Tailwind, dan Groq dengan base model llama3.
 
 ## Preview
 Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
