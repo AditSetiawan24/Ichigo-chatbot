@@ -57,12 +57,30 @@ function App() {
   };
 
   const handleNameChange = () => {
-    if (newBotName.trim() !== "") {
-      setBotName(newBotName);
-      setNewBotName("");
+    if (newBotName.trim() === "") {
+      alert("Nama bot tidak boleh kosong!");
+      return;
+    }
+    if (newBotName.length < 3 || newBotName.length > 20) {
+      alert("Nama bot harus terdiri dari 3 hingga 20 karakter!");
+      return;
     }
 
     if (newBotProfilePic) {
+      const fileType = newBotProfilePic.type;
+      const fileSize = newBotProfilePic.size;
+      const validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"]; 
+
+      if (!validImageTypes.includes(fileType)) {
+        alert("Hanya file gambar berformat JPG, PNG, atau GIF yang diperbolehkan!");
+        return;
+      }
+
+      if (fileSize > 2 * 1024 * 1024) { // 2MB
+        alert("Ukuran gambar tidak boleh lebih dari 2MB!");
+        return;
+      }
+
       const reader = new FileReader();
       reader.onloadend = () => {
         setBotProfilePic(reader.result);
@@ -70,6 +88,9 @@ function App() {
       reader.readAsDataURL(newBotProfilePic);
       setNewBotProfilePic(null);
     }
+
+    setBotName(newBotName);
+    setNewBotName("");
 
     setShowNameModal(false);
   };
@@ -158,15 +179,15 @@ function App() {
           >
             {/* Paper Airplane Icon */}
             <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 text-white"
-    fill="none"
-    viewBox="2 2 20 20"
-    stroke="currentColor"
-    strokeWidth="1"
-  >
-    <path d="M10 14L21 3m0 0l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1z" />
-  </svg>
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-white"
+              fill="none"
+              viewBox="2 2 20 20"
+              stroke="currentColor"
+              strokeWidth="1"
+            >
+              <path d="M10 14L21 3m0 0l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1z" />
+            </svg>
           </button>
         </div>
       </div>
