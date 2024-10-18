@@ -117,7 +117,13 @@ function App() {
 
         {showNameModal && (
           <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative">
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+                onClick={() => setShowNameModal(false)}
+              >
+                &times;
+              </button>
               <h2 className="text-xl font-bold mb-4">Ubah Nama dan Foto Profil Bot</h2>
               <input
                 type="text"
