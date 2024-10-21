@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { reqPesan } from "./utils/groq";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -173,6 +174,7 @@ function App() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center mt-4 px-4 w-full">
+        <Analytics />
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
