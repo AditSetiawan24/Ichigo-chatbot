@@ -45,6 +45,4 @@ npm run dev
 [Vercel](https://vercel.com/docs)
 
 ## Screenshot
-![Mobile](https://ezio.sakurani.my.id/res_Y096r_001624.png)
-##
-![Desktop](https://ezio.sakurani.my.id/Scr_nhCb9_001846.png)
+![Preview](https://i.ibb.co.com/SPdVyqT/Screenshot-2025-01-10-235433.png)
