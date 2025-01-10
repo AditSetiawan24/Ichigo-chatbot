@@ -9,12 +9,12 @@ function App() {
   const [botName, setBotName] = useState("Ichigo - 015");
   const [showNameModal, setShowNameModal] = useState(false);
   const [newBotName, setNewBotName] = useState("");
-  const [botProfilePic, setBotProfilePic] = useState("https://i.ibb.co.com/rfSNzgs/ichigo.jpg");
+  const [botProfilePic, setBotProfilePic] = useState("https://i.ibb.co.com/17r5TgZ/ichigo1.jpg");
   const [newBotProfilePic, setNewBotProfilePic] = useState(null);
 
   useEffect(() => {
     setBotName(loadFromLocalStorage("botName", "Ichigo - 015"));
-    setBotProfilePic(loadFromLocalStorage("botProfilePic", "https://i.ibb.co.com/rfSNzgs/ichigo.jpg"));
+    setBotProfilePic(loadFromLocalStorage("botProfilePic", "https://i.ibb.co.com/17r5TgZ/ichigo1.jpg"));
     setMessages(loadFromLocalStorage("messages", []));
   }, []); 
 
