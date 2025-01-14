@@ -46,3 +46,9 @@ npm run dev
 
 ## Screenshot
 ![Preview](https://i.ibb.co.com/SPdVyqT/Screenshot-2025-01-10-235433.png)
+
+<h2 align="center">If You Want To Support Me, You Can Scan Here : 😊</h2>
+<div align="center">
+  <img height="200" src="https://i.ibb.co.com/5jLWPTH/Untitled-1-1.png"/>
+  <p align="center"> Saweria </p>
+</div>
