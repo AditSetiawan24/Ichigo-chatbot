@@ -11,7 +11,7 @@ function App() {
   const [showNameModal, setShowNameModal] = useState(false);
   const [newBotName, setNewBotName] = useState("");
   const [botProfilePic, setBotProfilePic] = useState(
-    "https://i.ibb.co.com/nNc7bNyG/ichigo1.jpg"
+    "https://i.postimg.cc/1RVgqpRC/ichigo1.jpg"
   );
   const [newBotProfilePic, setNewBotProfilePic] = useState(null);
   const [loading, setLoading] = useState(false);
