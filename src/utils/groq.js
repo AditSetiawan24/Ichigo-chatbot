@@ -51,7 +51,7 @@ export const reqPesan = async (content, history, promptMode) => {
           content,
         },
       ],
-      model: "llama3-70b-8192",
+      model: "openai/gpt-oss-120b",
     });
 
     return reply.choices[0].message.content;
