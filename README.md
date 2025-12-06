@@ -17,23 +17,66 @@ Link : [Ichigo - 015](https://ichigo.aditproject.my.id/)
 - NPM Ver: 10.5.2
 
 ## How To Use It?
+
+### 🔒 Secure Setup (Recommended)
+This project now uses a secure backend server to protect your API keys!
+
 1. Clone
    ```sh
    git clone https://github.com/AditSetiawan24/Ichigo-chatbot.git
+   cd Ichigo-chatbot
    ```
-2. Install Dependencies
+
+2. Setup Backend Server
    ```sh
+   cd server
    npm install
    ```
-3. Change the example.env to .env
-4. Fill the API KEY and PROMT
-5. Get Groq Api Key [HERE](https://console.groq.com/keys) _read documentation_
+
+3. Configure Server Environment
+   ```sh
+   # Copy the example env file
+   cp .env.example .env
    
+   # Edit .env and add your credentials:
+   # - GROQ_API_KEY=your_actual_groq_api_key
+   # - PROMPT_PACAR=your_prompt_here
+   # - PROMPT_BESTFRIEND=your_prompt_here
+   ```
+   Get Groq API Key [HERE](https://console.groq.com/keys)
+
+4. Setup Frontend
+   ```sh
+   cd ..
+   npm install
+   
+   # Copy frontend env
+   cp example.env .env
+   ```
+
 ## How To Run It?
-You can use 
+
+### Start Backend Server (Terminal 1)
+```sh
+cd server
+npm start
+```
+Server will run on `http://localhost:3001`
+
+### Start Frontend (Terminal 2)
 ```sh
 npm run dev
 ```
+Frontend will run on `http://localhost:5173`
+
+## Security Features ✅
+- ✅ API keys stored securely on backend only
+- ✅ Rate limiting (50 requests per 15 minutes)
+- ✅ CORS protection
+- ✅ Input validation and sanitization
+- ✅ Helmet security headers
+- ✅ No sensitive data exposed in browser
+- ✅ Request size limits
 
 ## Source
 [VITE+React](https://v4.vite.dev/guide/)

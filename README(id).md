@@ -15,23 +15,77 @@ Link : [Ichigo - 015](https://ichigo.aditproject.my.id/)
 - NPM Ver: 10.5.2
 
 ## Cara Menggunakan?
-1. Lakukan Clone
+
+### 🔒 Setup Aman (Direkomendasikan)
+Project ini sekarang menggunakan backend server yang aman untuk melindungi API key Anda!
+
+1. **Clone Repository**
    ```sh
    git clone https://github.com/AditSetiawan24/Ichigo-chatbot.git
+   cd Ichigo-chatbot
    ```
-2. Lalu Install Dependencies
+
+2. **Setup Otomatis (Windows)**
    ```sh
-   npm install
+   setup.bat
    ```
-3. Ubah file example.env menjadi .env
-4. Isi API KEY dan PROMT (untuk prompt bebas sesuai selera)
-5. Dapatkan Groq Api Key [Disini](https://console.groq.com/keys) _baca docsnya kalau bingung_
    
-## Cara Menjalankannya?
-Gunakan command ini 
+   **Setup Otomatis (Linux/Mac)**
+   ```sh
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+
+3. **Konfigurasi Environment (PENTING!)**
+   Edit file `server/.env` dan isi dengan credentials Anda:
+   ```env
+   GROQ_API_KEY=api_key_anda_disini
+   PROMPT_PACAR=prompt_anda_disini
+   PROMPT_BESTFRIEND=prompt_anda_disini
+   ```
+   Dapatkan Groq API Key [DISINI](https://console.groq.com/keys)
+
+## Cara Menjalankan?
+
+### Opsi 1: Menggunakan Script (Mudah)
+**Windows:**
+```sh
+start.bat
+```
+
+**Linux/Mac:**
+```sh
+chmod +x start.sh
+./start.sh
+```
+
+### Opsi 2: Manual (2 Terminal)
+**Terminal 1 - Backend:**
+```sh
+cd server
+npm start
+```
+
+**Terminal 2 - Frontend:**
 ```sh
 npm run dev
 ```
+
+Buka browser: `http://localhost:5173`
+
+## Fitur Keamanan ✅
+- ✅ API key tersimpan aman di backend
+- ✅ Rate limiting (50 request per 15 menit)
+- ✅ CORS protection
+- ✅ Input validation & sanitization
+- ✅ Security headers dengan Helmet
+- ✅ Tidak ada data sensitif yang terekspos di browser
+- ✅ Request size limits
+
+## Dokumentasi Lengkap
+- 📖 [Panduan Cepat](./QUICKSTART.md)
+- 🔒 [Panduan Keamanan](./SECURITY.md)
+- 🚀 [Panduan Deployment](./DEPLOYMENT.md)
 
 ## Source
 [VITE+React](https://v4.vite.dev/guide/)
