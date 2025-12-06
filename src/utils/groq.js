@@ -1,6 +1,7 @@
 // Secure API call through backend proxy
 // API key is now safely stored on the server side
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// For Vercel: API routes are at /api/*, for Railway: use full URL
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 export const reqPesan = async (content, history, promptMode) => {
   // Validate prompt mode before sending
