@@ -7,19 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+server/node_modules
+server/package-lock.json
+
+# Build output
 dist
 dist-ssr
 *.local
+
+# Environment variables (SENSITIVE!)
 .env
 .env.local
 .env.production
-
-# Server files
-server/node_modules
+.env.development
 server/.env
 server/.env.local
 server/.env.production
+server/.env.development
 
 # Editor directories and files
 .vscode/*
@@ -32,4 +38,12 @@ server/.env.production
 *.sln
 *.sw?
 
+# Custom
 prompt.js
+
+# Development only files (not needed in production)
+DEPLOYMENT_STEPS.bat
+server/
+
+# Vercel
+.vercel
