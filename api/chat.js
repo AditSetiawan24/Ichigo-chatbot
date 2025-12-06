@@ -6,6 +6,27 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+// Simple in-memory rate limiting (resets on cold start)
+const requestCounts = new Map();
+const RATE_LIMIT = 10; // requests per minute
+const RATE_WINDOW = 60 * 1000; // 1 minute
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const userRequests = requestCounts.get(ip) || [];
+  
+  // Remove old requests outside the window
+  const recentRequests = userRequests.filter(time => now - time < RATE_WINDOW);
+  
+  if (recentRequests.length >= RATE_LIMIT) {
+    return false;
+  }
+  
+  recentRequests.push(now);
+  requestCounts.set(ip, recentRequests);
+  return true;
+}
+
 // Helper function untuk sanitasi input
 const sanitizeInput = (text) => {
   return text
@@ -56,6 +77,12 @@ const validateRequest = (body) => {
 };
 
 export default async function handler(req, res) {
+  // Security headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*'); // In production, set to your domain
@@ -71,6 +98,14 @@ export default async function handler(req, res) {
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Rate limiting
+  const clientIp = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown';
+  if (!checkRateLimit(clientIp)) {
+    return res.status(429).json({ 
+      error: 'Terlalu banyak request. Tunggu 1 menit dan coba lagi.' 
+    });
   }
 
   try {

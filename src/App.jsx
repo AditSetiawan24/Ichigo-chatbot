@@ -123,25 +123,40 @@ function App() {
 
   const handleSubmit = async () => {
     if (content.trim() === "") return;
+    if (!promptMode) {
+      alert("Silakan pilih mode chat terlebih dahulu (Pacar atau Bestie)");
+      return;
+    }
 
-    const newUserMessage = { role: "user", content };
+    const userContent = content.trim();
+    const newUserMessage = { role: "user", content: userContent };
     const updatedMessages = [...messages, newUserMessage];
     setMessages(updatedMessages);
-
     setMessageCount(updatedMessages.length);
-
     setLoading(true);
     setContent("");
 
     try {
-      // Delay response for 2 seconds
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      const aiReply = await reqPesan(content, updatedMessages, promptMode);
+      const aiReply = await reqPesan(userContent, updatedMessages, promptMode);
       const newAiMessage = { role: "ai", content: aiReply };
-
       setMessages((prev) => [...prev, newAiMessage]);
     } catch (error) {
       console.error("Error fetching AI reply:", error);
+      
+      // User-friendly error handling
+      let errorMessage = "Maaf, terjadi kesalahan. Silakan coba lagi.";
+      
+      if (error.message.includes('terhubung ke server')) {
+        errorMessage = "Tidak dapat terhubung ke server. Periksa koneksi internet Anda.";
+      } else if (error.message.includes('Rate limit')) {
+        errorMessage = "Terlalu banyak request. Tunggu sebentar dan coba lagi.";
+      }
+      
+      const errorAiMessage = { 
+        role: "ai", 
+        content: errorMessage 
+      };
+      setMessages((prev) => [...prev, errorAiMessage]);
     } finally {
       setLoading(false);
     }
@@ -203,6 +218,24 @@ function App() {
   const handlePromptModeChange = (mode) => {
     setPromptMode(mode);
   };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  const scrollToBottom = () => {
+    const chatContainer = document.getElementById('chat-messages');
+    if (chatContainer) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   return (
     <main className="flex flex-col min-h-[80vh] justify-center items-center bg-gray-100 px-4 sm:px-0">
@@ -353,7 +386,22 @@ function App() {
           </div>
         )}
 
-        <div className="flex-grow overflow-y-auto max-h-[400px] mb-4 p-4 space-y-4 bg-gray-50 rounded-lg shadow-inner">
+        <div 
+          id="chat-messages"
+          className="flex-grow overflow-y-auto max-h-[400px] mb-4 p-4 space-y-4 bg-gray-50 rounded-lg shadow-inner scroll-smooth"
+          role="log"
+          aria-live="polite"
+          aria-label="Chat messages"
+        >
+          {messages.length === 0 && (
+            <div className="flex items-center justify-center h-full text-gray-400">
+              <p className="text-center">
+                {promptMode === "" 
+                  ? "Pilih mode chat untuk memulai 👆" 
+                  : "Kirim pesan untuk memulai percakapan 💬"}
+              </p>
+            </div>
+          )}
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -379,14 +427,21 @@ function App() {
         <div className="flex flex-col sm:flex-row items-center mt-4 px-4 w-full">
           <Analytics />
           <input
+            type="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            onKeyPress={handleKeyPress}
             placeholder="Ketik pesan..."
-            className="flex-grow py-2 px-4 text-md rounded-full border border-gray-300 focus:outline-none focus:ring focus:border-blue-300 w-full sm:w-auto"
+            disabled={loading || !promptMode}
+            maxLength={5000}
+            className="flex-grow py-2 px-4 text-md rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-auto disabled:bg-gray-100 disabled:cursor-not-allowed transition-all"
+            aria-label="Message input"
           />
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 py-2 px-4 rounded-full sm:rounded-r-full hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto"
+            disabled={loading || !content.trim() || !promptMode}
+            className="bg-blue-500 py-2 px-4 rounded-full sm:rounded-r-full hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto disabled:bg-gray-400 disabled:cursor-not-allowed"
+            aria-label="Send message"
           >
             {/* Paper Airplane Icon */}
             <svg
