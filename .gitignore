@@ -41,9 +41,22 @@ server/.env.development
 # Custom
 prompt.js
 
-# Development only files (not needed in production)
+# Development/Setup files (optional, not needed after first setup)
+setup.bat
+setup.sh
+start.bat
+start.sh
 DEPLOYMENT_STEPS.bat
+DEPLOYMENT_CHECKLIST.md
+GITHUB_VERCEL_DEPLOYMENT.md
+QUICKSTART.md
+CHANGELOG.md
+
+# Server folder (using serverless instead)
 server/
 
 # Vercel
 .vercel
+
+# Lock files (can be regenerated)
+package-lock.json
