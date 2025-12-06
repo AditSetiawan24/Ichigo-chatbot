@@ -6,25 +6,19 @@ export default defineConfig({
   plugins: [react()],
   build: {
     // Production optimizations
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.logs in production
-        drop_debugger: true,
-      },
-    },
+    minify: 'esbuild', // Use esbuild for faster builds (Vercel default)
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          analytics: ['@vercel/analytics'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
+    sourcemap: false, // Disable sourcemaps in production for smaller bundle
   },
   server: {
     port: 5173,
-    strictPort: true,
+    strictPort: false,
   },
 })
