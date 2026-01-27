@@ -16,7 +16,7 @@ Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
 
 ## Cara Menggunakan?
 
-### 🔒 Setup Aman (Direkomendasikan)
+### 🔒 Setup
 Project ini sekarang menggunakan backend server yang aman untuk melindungi API key Anda!
 
 1. **Clone Repository**
@@ -46,20 +46,6 @@ Project ini sekarang menggunakan backend server yang aman untuk melindungi API k
    Dapatkan Groq API Key [DISINI](https://console.groq.com/keys)
 
 ## Cara Menjalankan?
-
-### Opsi 1: Menggunakan Script (Mudah)
-**Windows:**
-```sh
-start.bat
-```
-
-**Linux/Mac:**
-```sh
-chmod +x start.sh
-./start.sh
-```
-
-### Opsi 2: Manual (2 Terminal)
 **Terminal 1 - Backend:**
 ```sh
 cd server
@@ -81,11 +67,6 @@ Buka browser: `http://localhost:5173`
 - ✅ Security headers dengan Helmet
 - ✅ Tidak ada data sensitif yang terekspos di browser
 - ✅ Request size limits
-
-## Dokumentasi Lengkap
-- 📖 [Panduan Cepat](./QUICKSTART.md)
-- 🔒 [Panduan Keamanan](./SECURITY.md)
-- 🚀 [Panduan Deployment](./DEPLOYMENT.md)
 
 ## Source
 [VITE+React](https://v4.vite.dev/guide/)
