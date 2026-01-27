@@ -10,7 +10,7 @@ For indonesian language : [KLIK DISINI](https://github.com/AditSetiawan24/Groq-c
 This is a chatbot project designed to solve coding issues with a touch of a girlfriend/boyfriend or bestfriend experience. You can change its profile picture or username. This project is built using Vite, React, Tailwind, and Groq with the base model llama3.
 
 ## Preview
-Link : [Ichigo - 015](https://ichigo.aditproject.my.id/)
+Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
 
 ## Requirement
 - Node.Js Ver: 20.13.1
