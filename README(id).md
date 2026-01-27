@@ -8,7 +8,7 @@
 Ini merupakan project chatbot untuk menyelesaikan masalah codingan dengan bumbu girlfriend/boyfriend experience. Anda bisa mengubah foto profile ataupun usernamenya. Project ini dibuat menggunakan Vite, React, Tailwind, dan Groq dengan base model llama3.
 
 ## Preview
-Link : [Ichigo - 015](https://ichigo.aditproject.my.id/)
+Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
 
 ## Requirement
 - Node.Js Ver: 20.13.1
