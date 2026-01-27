@@ -3,7 +3,7 @@ import globals from 'globals'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-
+// ESLint configuration for a React project
 export default [
   { ignores: ['dist'] },
   {

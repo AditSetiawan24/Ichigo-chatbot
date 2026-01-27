@@ -18,7 +18,7 @@ Link : [Ichigo - 015](https://ichigo-chatbot.vercel.app/)
 
 ## How To Use It?
 
-### 🔒 Secure Setup (Recommended)
+### 🔒 Setup
 This project now uses a secure backend server to protect your API keys!
 
 1. Clone

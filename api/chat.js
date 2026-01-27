@@ -1,21 +1,17 @@
-// Vercel Serverless Function untuk handle chat API
 import Groq from 'groq-sdk';
 
-// Initialize Groq client
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-// Simple in-memory rate limiting (resets on cold start)
 const requestCounts = new Map();
-const RATE_LIMIT = 10; // requests per minute
-const RATE_WINDOW = 60 * 1000; // 1 minute
+const RATE_LIMIT = 10; 
+const RATE_WINDOW = 60 * 1000; 
 
 function checkRateLimit(ip) {
   const now = Date.now();
   const userRequests = requestCounts.get(ip) || [];
-  
-  // Remove old requests outside the window
+
   const recentRequests = userRequests.filter(time => now - time < RATE_WINDOW);
   
   if (recentRequests.length >= RATE_LIMIT) {
@@ -27,7 +23,6 @@ function checkRateLimit(ip) {
   return true;
 }
 
-// Helper function untuk sanitasi input
 const sanitizeInput = (text) => {
   return text
     .replace(/<script[^>]*>.*?<\/script>/gi, '')
@@ -36,7 +31,6 @@ const sanitizeInput = (text) => {
     .trim();
 };
 
-// Validate request
 const validateRequest = (body) => {
   const { content, history, promptMode } = body;
 

@@ -12,7 +12,6 @@ node_modules
 server/node_modules
 server/package-lock.json
 
-# Build output
 dist
 dist-ssr
 *.local
