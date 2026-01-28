@@ -474,7 +474,7 @@ function App() {
               />
             </a>
             <a
-              href="https://instagram.com/aditsetiawan_24/"
+              href="https://instagram.com/a_stwn1/"
               target="_blank"
               className="hover:text-gray-400"
             >
