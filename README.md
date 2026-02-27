@@ -69,15 +69,6 @@ npm run dev
 ```
 Frontend will run on `http://localhost:5173`
 
-## Security Features ✅
-- ✅ API keys stored securely on backend only
-- ✅ Rate limiting (50 requests per 15 minutes)
-- ✅ CORS protection
-- ✅ Input validation and sanitization
-- ✅ Helmet security headers
-- ✅ No sensitive data exposed in browser
-- ✅ Request size limits
-
 ## Source
 [VITE+React](https://v4.vite.dev/guide/)
 </br>
