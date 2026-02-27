@@ -59,15 +59,6 @@ npm run dev
 
 Buka browser: `http://localhost:5173`
 
-## Fitur Keamanan ✅
-- ✅ API key tersimpan aman di backend
-- ✅ Rate limiting (50 request per 15 menit)
-- ✅ CORS protection
-- ✅ Input validation & sanitization
-- ✅ Security headers dengan Helmet
-- ✅ Tidak ada data sensitif yang terekspos di browser
-- ✅ Request size limits
-
 ## Source
 [VITE+React](https://v4.vite.dev/guide/)
 </br>
