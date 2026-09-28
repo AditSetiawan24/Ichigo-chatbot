@@ -142,9 +142,9 @@ export default async function handler(req, res) {
           content: sanitizedContent,
         },
       ],
-      model: 'llama-3.1-8b-instant',
+      model: 'openai/gpt-oss-120b',
       temperature: 1,
-      max_tokens: 1024,
+      max_tokens: 2048,
       top_p: 1,
       stream: false,
     });
