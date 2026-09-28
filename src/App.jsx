@@ -88,7 +88,7 @@ function App() {
     setBotProfilePic(
       loadFromLocalStorage(
         "botProfilePic",
-        "https://ezio.sakurani.my.id/f2a_9ESS4_164207.jpg"
+        "https://i.ibb.co.com/BKQB7wgp/Ichigo-Darling.avif"
       )
     );
     setMessages(loadFromLocalStorage("messages", []));
