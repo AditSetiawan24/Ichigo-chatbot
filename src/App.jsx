@@ -88,7 +88,7 @@ function App() {
     setBotProfilePic(
       loadFromLocalStorage(
         "botProfilePic",
-        "https://i.ibb.co.com/BKQB7wgp/Ichigo-Darling.avif"
+        "https://i.ibb.co.com/Kxy2JNYp/am-i-the-only-one-who-doesnt-hate-ichigo-v0-3qbgfafar1hb1.webp"
       )
     );
     setMessages(loadFromLocalStorage("messages", []));
